@@ -1,0 +1,238 @@
+{
+  "status": "passed",
+  "validated_at_utc": "2026-08-31T08:25:28+00:00",
+  "collection_name": "3d_printing_hybrid_rag_v1",
+  "expected_point_count": 955,
+  "actual_point_count": 955,
+  "sample_payload_and_vectors_valid": true,
+  "hybrid_smoke_query_count": 4,
+  "hybrid_smoke_queries_passed": 4,
+  "errors": [],
+  "smoke_results": [
+    {
+      "name": "stringing_defect",
+      "query": "stringing thin strands between travel moves causes retraction nozzle temperature",
+      "passed": true,
+      "matched_terms": [
+        "stringing"
+      ],
+      "results": [
+        {
+          "rank": 1,
+          "score": 0.8333333333333333,
+          "chunk_id": "chunk_narrative_15e8f0fc667a40b0b211",
+          "chunk_type": "narrative",
+          "source_path": "original document/01_defect_ontology/stringing.txt",
+          "document_title": "stringing",
+          "preview": "Document: stringing\nSection: stringing\n\nTITLE: Stringing and oozing in FFF/FDM printing\nCANONICAL_ID: defect.stringing\nLANGUAGE: English\nRECORD_TYPE: Curated source note\nRETRIEVED: 2026-08-31\n\nDEFINITION\nThin unintended strands of polymer spanning gaps between separate printed regions. They form whe"
+        },
+        {
+          "rank": 2,
+          "score": 0.8333333333333333,
+          "chunk_id": "chunk_entity_8e0dd899d634096ec264",
+          "chunk_type": "entity",
+          "source_path": "original document/01_defect_ontology/stringing.txt",
+          "document_title": null,
+          "preview": "Defect: Stringing and oozing in FFF/FDM printing\nCanonical ID: defect.stringing\nAliases: stringing, oozing, stringing and oozing\nDefinition: Thin unintended strands of polymer spanning gaps between separate printed regions. They form when molten material leaks from the nozzle during non-print travel"
+        },
+        {
+          "rank": 3,
+          "score": 0.39285714285714285,
+          "chunk_id": "chunk_narrative_ca379cb14289e15333f7",
+          "chunk_type": "narrative",
+          "source_path": "original document/01_defect_ontology/spaghetti.txt",
+          "document_title": "spaghetti",
+          "preview": "Document: spaghetti\nSection: spaghetti\n\nTITLE: Spaghetti failure in FFF/FDM printing\nCANONICAL_ID: defect.spaghetti\nLANGUAGE: English\nRECORD_TYPE: Curated source note\nRETRIEVED: 2026-08-31\n\nDEFINITION\nAn uncontrolled accumulation of extruded filament in free space after the nozzle is no longer depos"
+        },
+        {
+          "rank": 4,
+          "score": 0.25,
+          "chunk_id": "chunk_entity_70c43053067544d9586b",
+          "chunk_type": "entity",
+          "source_path": "original document/01_defect_ontology/blobs.txt",
+          "document_title": null,
+          "preview": "Defect: Blobs and zits on FFF/FDM surfaces\nCanonical ID: defect.blobs\nAliases: blobs, zits, blobs and zits\nDefinition: Small localized protrusions or raised marks on the outer surface of a printed part, often occurring where an extrusion perimeter starts or ends. A repeated vertical alignment can in"
+        },
+        {
+          "rank": 5,
+          "score": 0.23809523809523808,
+          "chunk_id": "chunk_entity_89e246fc8c66632ddb1f",
+          "chunk_type": "entity",
+          "source_path": "original document/01_defect_ontology/spaghetti.txt",
+          "document_title": null,
+          "preview": "Defect: Spaghetti failure in FFF/FDM printing\nCanonical ID: defect.spaghetti\nAliases: spaghetti, spaghetti monster\nDefinition: An uncontrolled accumulation of extruded filament in free space after the nozzle is no longer depositing onto the intended part surface. The result resembles tangled strands"
+        }
+      ]
+    },
+    {
+      "name": "cracks_defect",
+      "query": "cracks layer separation poor interlayer bonding enclosure temperature",
+      "passed": true,
+      "matched_terms": [
+        "crack",
+        "layer separation",
+        "interlayer"
+      ],
+      "results": [
+        {
+          "rank": 1,
+          "score": 1.0,
+          "chunk_id": "chunk_entity_68d75c8e69edb5fca3b6",
+          "chunk_type": "entity",
+          "source_path": "original document/01_defect_ontology/cracks.txt",
+          "document_title": null,
+          "preview": "Defect: Layer separation and splitting in FFF/FDM parts\nCanonical ID: defect.cracks\nAliases: cracks, layer separation, splitting\nDefinition: Visible gaps or fractures between adjacent deposited layers caused by insufficient interlayer bonding or stress generated during cooling. Cracks commonly run a"
+        },
+        {
+          "rank": 2,
+          "score": 0.6666666666666666,
+          "chunk_id": "chunk_narrative_8fdc0bebe3677b7d74c3",
+          "chunk_type": "narrative",
+          "source_path": "original document/01_defect_ontology/cracks.txt",
+          "document_title": "cracks",
+          "preview": "Document: cracks\nSection: cracks\n\nTITLE: Layer separation and splitting in FFF/FDM parts\nCANONICAL_ID: defect.cracks\nLANGUAGE: English\nRECORD_TYPE: Curated source note\nRETRIEVED: 2026-08-31\n\nDEFINITION\nVisible gaps or fractures between adjacent deposited layers caused by insufficient interlayer bond"
+        },
+        {
+          "rank": 3,
+          "score": 0.45,
+          "chunk_id": "chunk_narrative_b350c7e7e2be2c95c767",
+          "chunk_type": "narrative",
+          "source_path": "original document/01_defect_ontology/cracks.txt",
+          "document_title": "cracks",
+          "preview": "Document: cracks\nSection: cracks\n\nalong printed layer interfaces.\n\nPRIMARY SOURCES\nPrusa Research, \"Layer separation and splitting (FDM)\":\nhttps://help.prusa3d.com/article/layer-separation-and-splitting-fdm_1806\n\nSimplify3D, \"Layer Separation and Splitting\":\nhttps://www.simplify3d.com/resources/prin"
+        },
+        {
+          "rank": 4,
+          "score": 0.25,
+          "chunk_id": "chunk_narrative_a60c696278fee8af999e",
+          "chunk_type": "narrative",
+          "source_path": "original document/06_academic_and_standards/JCS_2022_Failures_and_Flaws_in_FDM_Polymers_and_Composites.pdf",
+          "document_title": "Failures and Flaws in Fused Deposition Modeling (FDM) Additively Manufactured Polymers and Composites",
+          "preview": "Document: Failures and Flaws in Fused Deposition Modeling (FDM) Additively Manufactured Polymers and Composites\nSection: Failures and Flaws in Fused Deposition Modeling (FDM) Additively Manufactured Polymers and Composites > Page 13\nPage: 13\n\nthe surface area\ncontact. Heated beds soften the extruded"
+        },
+        {
+          "rank": 5,
+          "score": 0.2,
+          "chunk_id": "chunk_narrative_eb4cce8b35b4d39fc8f9",
+          "chunk_type": "narrative",
+          "source_path": "original document/03_printer_manuals/Prusa_MK4S_MK3.9S_Handbook_EN.pdf",
+          "document_title": "Prusa MK4S MK3.9S Handbook EN",
+          "preview": "Document: Prusa MK4S MK3.9S Handbook EN\nSection: Prusa MK4S MK3.9S Handbook EN > Page 55\nPage: 55\n\n• Absorbs moisture - must be stored in a dry\n                                             environment\n\n   Nozzle temperature: 220 - 260 °C\n\n   Bed temperature: 40 - 85 °C. (larger objects require highe"
+        }
+      ]
+    },
+    {
+      "name": "spaghetti_defect",
+      "query": "spaghetti failure detached print loose tangled filament",
+      "passed": true,
+      "matched_terms": [
+        "spaghetti",
+        "tangled",
+        "detached"
+      ],
+      "results": [
+        {
+          "rank": 1,
+          "score": 0.8333333333333333,
+          "chunk_id": "chunk_narrative_ca379cb14289e15333f7",
+          "chunk_type": "narrative",
+          "source_path": "original document/01_defect_ontology/spaghetti.txt",
+          "document_title": "spaghetti",
+          "preview": "Document: spaghetti\nSection: spaghetti\n\nTITLE: Spaghetti failure in FFF/FDM printing\nCANONICAL_ID: defect.spaghetti\nLANGUAGE: English\nRECORD_TYPE: Curated source note\nRETRIEVED: 2026-08-31\n\nDEFINITION\nAn uncontrolled accumulation of extruded filament in free space after the nozzle is no longer depos"
+        },
+        {
+          "rank": 2,
+          "score": 0.8333333333333333,
+          "chunk_id": "chunk_entity_89e246fc8c66632ddb1f",
+          "chunk_type": "entity",
+          "source_path": "original document/01_defect_ontology/spaghetti.txt",
+          "document_title": null,
+          "preview": "Defect: Spaghetti failure in FFF/FDM printing\nCanonical ID: defect.spaghetti\nAliases: spaghetti, spaghetti monster\nDefinition: An uncontrolled accumulation of extruded filament in free space after the nozzle is no longer depositing onto the intended part surface. The result resembles tangled strands"
+        },
+        {
+          "rank": 3,
+          "score": 0.45,
+          "chunk_id": "chunk_narrative_666ac838bd7017e85af3",
+          "chunk_type": "narrative",
+          "source_path": "original document/01_defect_ontology/spaghetti.txt",
+          "document_title": "spaghetti",
+          "preview": "Document: spaghetti\nSection: spaghetti\n\ngross structural print failure with extensive free-space extrusion.\n\nPRIMARY SOURCES\nPrusa Research, \"Spaghetti monster\":\nhttps://help.prusa3d.com/article/spaghetti-monster_1999\n\nSimplify3D, \"Not Sticking to the Bed\":\nhttps://www.simplify3d.com/resources/print"
+        },
+        {
+          "rank": 4,
+          "score": 0.375,
+          "chunk_id": "chunk_narrative_ebd357bb820908065cbc",
+          "chunk_type": "narrative",
+          "source_path": "original document/06_academic_and_standards/JCS_2022_Failures_and_Flaws_in_FDM_Polymers_and_Composites.pdf",
+          "document_title": "Failures and Flaws in Fused Deposition Modeling (FDM) Additively Manufactured Polymers and Composites",
+          "preview": "Document: Failures and Flaws in Fused Deposition Modeling (FDM) Additively Manufactured Polymers and Composites\nSection: Failures and Flaws in Fused Deposition Modeling (FDM) Additively Manufactured Polymers and Composites > Page 12\nPage: 12\n\nn nozzle itself).\n\n                                   5. "
+        },
+        {
+          "rank": 5,
+          "score": 0.34285714285714286,
+          "chunk_id": "chunk_narrative_44f39ce800e54ed3e0e2",
+          "chunk_type": "narrative",
+          "source_path": "original document/03_printer_manuals/Prusa_MK4S_MK3.9S_Handbook_EN.pdf",
+          "document_title": "Prusa MK4S MK3.9S Handbook EN",
+          "preview": "Document: Prusa MK4S MK3.9S Handbook EN\nSection: Prusa MK4S MK3.9S Handbook EN > Page 22\nPage: 22\n\n4.6. Unloading (Removing) Filament\n\n 1. Select LCD Menu - Filament - Unload Filament\n\n 2. The printer will preheat automatically. As soon as it reaches the right temperature, the\n    filament will be u"
+        }
+      ]
+    },
+    {
+      "name": "material_parameter",
+      "query": "Bambu Lab PETG nozzle temperature printing speed material parameter",
+      "passed": true,
+      "matched_terms": [
+        "petg",
+        "nozzle temperature"
+      ],
+      "results": [
+        {
+          "rank": 1,
+          "score": 0.625,
+          "chunk_id": "chunk_parameter_1fec02c0a5e3cf005082",
+          "chunk_type": "parameter",
+          "source_path": "original document/02_process_parameters/BambuStudio_official_profiles/Bambu_PETG_HF_H2D_0.4mm_filament_profile.json",
+          "document_title": null,
+          "preview": "Entity: Bambu PETG HF @BBL H2D 0.4 nozzle\nParameter group: thermal_and_drying\nMaterial family: PETG\nPrinter model: Bambu Lab H2D\nNozzle diameter: 0.4 mm\nParameters:\n- nozzle_temperature: [\"245\",\"245\",\"245\"]; unit=degC; scope=explicit_overrides_only\n- nozzle_temperature_initial_layer: [\"245\",\"245\",\"2"
+        },
+        {
+          "rank": 2,
+          "score": 0.5,
+          "chunk_id": "chunk_narrative_29f789bcc4d110addc67",
+          "chunk_type": "narrative",
+          "source_path": "original document/02_process_parameters/Bambu_Lab_ASA_Aero_TDS_EN.pdf",
+          "document_title": "Bambu Lab ASA Aero TDS EN",
+          "preview": "Document: Bambu Lab ASA Aero TDS EN\nSection: Bambu Lab ASA Aero TDS EN > Page 3 > Extracted table 2\nPage: 3\n\n|                    | Specimen Printing Conditions                                                             |    |          |      |    |\n|--------------------|---------------------------"
+        },
+        {
+          "rank": 3,
+          "score": 0.47619047619047616,
+          "chunk_id": "chunk_parameter_651cc9e75545ccc0a3eb",
+          "chunk_type": "parameter",
+          "source_path": "original document/02_process_parameters/BambuStudio_official_profiles/Bambu_PETG_HF_H2D_0.4mm_filament_profile.json",
+          "document_title": null,
+          "preview": "Entity: Bambu PETG HF @BBL H2D 0.4 nozzle\nParameter group: speed_and_motion\nMaterial family: PETG\nPrinter model: Bambu Lab H2D\nNozzle diameter: 0.4 mm\nParameters:\n- filament_max_volumetric_speed: [\"25\",\"40\",\"25\"]; unit=mm3/s; scope=explicit_overrides_only\n- filament_ramming_travel_time: [\"0\",\"0\",\"0\""
+        },
+        {
+          "rank": 4,
+          "score": 0.45,
+          "chunk_id": "chunk_parameter_a458f99dc6a783ea0bba",
+          "chunk_type": "parameter",
+          "source_path": "original document/02_process_parameters/BambuStudio_official_profiles/Bambu_PETG_HF_H2D_0.4mm_filament_profile.json",
+          "document_title": null,
+          "preview": "Entity: Bambu PETG HF @BBL H2D 0.4 nozzle\nParameter group: geometry_and_support\nMaterial family: PETG\nPrinter model: Bambu Lab H2D\nNozzle diameter: 0.4 mm\nParameters:\n- slow_down_layer_time: [\"10\"]; unit=s; scope=explicit_overrides_only"
+        },
+        {
+          "rank": 5,
+          "score": 0.41666666666666663,
+          "chunk_id": "chunk_narrative_a0e76d35b38f10f7e20f",
+          "chunk_type": "narrative",
+          "source_path": "original document/02_process_parameters/Bambu_Lab_ASA_Aero_TDS_EN.pdf",
+          "document_title": "Bambu Lab ASA Aero TDS EN",
+          "preview": "Document: Bambu Lab ASA Aero TDS EN\nSection: Bambu Lab ASA Aero TDS EN > Page 1\nPage: 1\n\n(Sealed, with desiccant)\n\n                 Nozzle Size                        0.4 (Recommended), 0.6, 0.8 mm\n\n             Nozzle Temperature                         240 - 280 °C\n\n                               "
+        }
+      ]
+    }
+  ]
+}

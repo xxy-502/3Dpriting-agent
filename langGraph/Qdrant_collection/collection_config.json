@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "created_at_utc": "2026-08-31T08:25:01+00:00",
+  "collection_name": "3d_printing_hybrid_rag_v1",
+  "qdrant_mode": "persistent_local",
+  "storage_path": "qdrant_storage",
+  "input_path": "../chunks/all_chunks.jsonl",
+  "point_count": 955,
+  "vectors": {
+    "dense": {
+      "type": "dense",
+      "dimension": 384,
+      "distance": "Cosine",
+      "model_id": "BAAI/bge-small-en-v1.5",
+      "model_path": "../../models/bge/bge-small-en-v1.5",
+      "normalize_embeddings": true,
+      "query_instruction": "Represent this sentence for searching relevant passages: "
+    },
+    "sparse": {
+      "type": "sparse",
+      "algorithm": "BM25",
+      "vocabulary_path": "sparse/bm25_vocabulary.json",
+      "tokenizer_version": "en_technical_v1",
+      "k1": 1.2,
+      "b": 0.75
+    }
+  },
+  "fusion": {
+    "algorithm": "RRF",
+    "prefetch_limit": 20,
+    "default_result_limit": 5
+  },
+  "payload_text_key": "page_content",
+  "payload_metadata_key": "metadata"
+}

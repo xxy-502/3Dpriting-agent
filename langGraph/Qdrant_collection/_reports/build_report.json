@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "created_at_utc": "2026-08-31T08:25:01+00:00",
+  "collection_name": "3d_printing_hybrid_rag_v1",
+  "input_chunk_count": 955,
+  "qdrant_point_count": 955,
+  "chunk_type_counts": {
+    "entity": 33,
+    "narrative": 739,
+    "parameter": 183
+  },
+  "dense_dimension": 384,
+  "sparse_vocabulary_size": 9719,
+  "device": "cuda",
+  "qdrant_status": "green"
+}

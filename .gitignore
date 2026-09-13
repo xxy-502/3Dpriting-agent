@@ -1,0 +1,27 @@
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyd
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Runtime outputs and temporary downloads
+langGraph/runs/
+langGraph/image_defect/.ultralytics/
+langGraph/Qdrant_collection/qdrant_storage/.lock
+*.part
+
+# Official weights are downloaded locally with download_models.py.
+# Keep only placeholder files so the required directory structure is visible.
+models/Qwen/*
+!models/Qwen/.gitkeep
+models/bge/*
+!models/bge/.gitkeep
+models/sam/*
+!models/sam/.gitkeep

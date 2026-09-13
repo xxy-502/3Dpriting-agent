@@ -1,0 +1,2 @@
+dataset/video/*.mp4 filter=lfs diff=lfs merge=lfs -text
+models/yolo/*.pt filter=lfs diff=lfs merge=lfs -text
