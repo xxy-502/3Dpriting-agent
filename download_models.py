@@ -21,6 +21,13 @@ MODEL_ROOT = PROJECT_ROOT / "models"
 
 QWEN_REPO_ID = "Qwen/Qwen2.5-3B-Instruct"
 QWEN_TARGET = MODEL_ROOT / "Qwen" / "Qwen2.5-3B-Instruct"
+QWEN_LICENSE_PAGE = (
+    "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/blob/main/LICENSE"
+)
+QWEN_LICENSE_URL = (
+    "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/LICENSE"
+)
+QWEN_LICENSE_TARGET = QWEN_TARGET / "LICENSE"
 QWEN_ALLOW_PATTERNS = (
     "config.json",
     "generation_config.json",
@@ -37,6 +44,11 @@ QWEN_ALLOW_PATTERNS = (
 
 BGE_REPO_ID = "BAAI/bge-small-en-v1.5"
 BGE_TARGET = MODEL_ROOT / "bge" / "bge-small-en-v1.5"
+BGE_LICENSE_PAGE = "https://github.com/FlagOpen/FlagEmbedding/blob/master/LICENSE"
+BGE_LICENSE_URL = (
+    "https://raw.githubusercontent.com/FlagOpen/FlagEmbedding/master/LICENSE"
+)
+BGE_LICENSE_TARGET = BGE_TARGET / "LICENSE"
 BGE_ALLOW_PATTERNS = (
     "config.json",
     "config_sentence_transformers.json",
@@ -57,6 +69,9 @@ SAM_URL = (
     "sam2.1_hiera_base_plus.pt"
 )
 SAM_TARGET = MODEL_ROOT / "sam" / "sam2.1_hiera_base_plus.pt"
+SAM_LICENSE_PAGE = "https://github.com/facebookresearch/sam2/blob/main/LICENSE"
+SAM_LICENSE_URL = "https://raw.githubusercontent.com/facebookresearch/sam2/main/LICENSE"
+SAM_LICENSE_TARGET = MODEL_ROOT / "sam" / "LICENSE"
 
 ALL_MODELS = ("qwen", "bge", "sam")
 
@@ -87,11 +102,18 @@ def _print_plan(selected: Iterable[str]) -> None:
     for name in selected:
         if name == "qwen":
             print(f"  Qwen: hf://{QWEN_REPO_ID} -> {QWEN_TARGET}")
+            print(f"    License: {QWEN_LICENSE_PAGE} -> {QWEN_LICENSE_TARGET}")
         elif name == "bge":
             print(f"  BGE:  hf://{BGE_REPO_ID} -> {BGE_TARGET}")
+            print(f"    License: {BGE_LICENSE_PAGE} -> {BGE_LICENSE_TARGET}")
         elif name == "sam":
             print(f"  SAM:  {SAM_URL} -> {SAM_TARGET}")
+            print(f"    License: {SAM_LICENSE_PAGE} -> {SAM_LICENSE_TARGET}")
     print(f"  YOLO: preserved at {MODEL_ROOT / 'yolo' / 'yolo_best.pt'}")
+    print(
+        "IMPORTANT: Downloading or using a model means that its official "
+        "license terms apply. Read the linked license before continuing."
+    )
 
 
 def _load_snapshot_download():
@@ -144,9 +166,9 @@ def _validate_transformer_model(path: Path, label: str) -> None:
         )
 
 
-def _download_file(url: str, target: Path, *, force: bool) -> None:
+def _download_file(url: str, target: Path, *, label: str, force: bool) -> None:
     if target.is_file() and target.stat().st_size > 0 and not force:
-        print(f"SAM checkpoint already exists, skipping: {target}")
+        print(f"{label} already exists, skipping: {target}")
         return
 
     target.parent.mkdir(parents=True, exist_ok=True)
@@ -160,7 +182,7 @@ def _download_file(url: str, target: Path, *, force: bool) -> None:
         try:
             if partial.exists():
                 partial.unlink()
-            print(f"Downloading SAM 2.1 Hiera Base+ (attempt {attempt}/3) ...")
+            print(f"Downloading {label} (attempt {attempt}/3) ...")
             with urllib.request.urlopen(request, timeout=60) as response, partial.open(
                 "wb"
             ) as output:
@@ -181,7 +203,7 @@ def _download_file(url: str, target: Path, *, force: bool) -> None:
             if partial.stat().st_size == 0:
                 raise RuntimeError("downloaded file is empty")
             partial.replace(target)
-            print(f"SAM ready: {target}")
+            print(f"{label} ready: {target}")
             return
         except Exception:
             if partial.exists():
@@ -189,6 +211,27 @@ def _download_file(url: str, target: Path, *, force: bool) -> None:
             if attempt == 3:
                 raise
             time.sleep(2**attempt)
+
+
+def _download_license(
+    *,
+    label: str,
+    page_url: str,
+    download_url: str,
+    target: Path,
+    force: bool,
+) -> None:
+    print(f"{label} official license: {page_url}")
+    _download_file(
+        download_url,
+        target,
+        label=f"{label} license copy",
+        force=force,
+    )
+    print(
+        f"NOTICE: Use of {label} is governed by its official license. "
+        f"A copy is stored at {target}."
+    )
 
 
 def main() -> int:
@@ -208,6 +251,13 @@ def main() -> int:
                 allow_patterns=QWEN_ALLOW_PATTERNS,
                 force=args.force,
             )
+            _download_license(
+                label="Qwen2.5-3B-Instruct",
+                page_url=QWEN_LICENSE_PAGE,
+                download_url=QWEN_LICENSE_URL,
+                target=QWEN_LICENSE_TARGET,
+                force=args.force,
+            )
         if "bge" in selected:
             _download_hugging_face_model(
                 label="BGE Small EN v1.5",
@@ -216,8 +266,27 @@ def main() -> int:
                 allow_patterns=BGE_ALLOW_PATTERNS,
                 force=args.force,
             )
+            _download_license(
+                label="BGE Small EN v1.5",
+                page_url=BGE_LICENSE_PAGE,
+                download_url=BGE_LICENSE_URL,
+                target=BGE_LICENSE_TARGET,
+                force=args.force,
+            )
         if "sam" in selected:
-            _download_file(SAM_URL, SAM_TARGET, force=args.force)
+            _download_file(
+                SAM_URL,
+                SAM_TARGET,
+                label="SAM 2.1 Hiera Base+ checkpoint",
+                force=args.force,
+            )
+            _download_license(
+                label="SAM 2.1 Hiera Base+",
+                page_url=SAM_LICENSE_PAGE,
+                download_url=SAM_LICENSE_URL,
+                target=SAM_LICENSE_TARGET,
+                force=args.force,
+            )
     except KeyboardInterrupt:
         print("Download cancelled by user.", file=sys.stderr)
         return 130
@@ -226,6 +295,10 @@ def main() -> int:
         return 1
 
     print("All requested models are ready.")
+    print(
+        "The downloaded models remain subject to their respective official "
+        "licenses; keeping a local license copy does not replace those terms."
+    )
     print("Run the Agent with: python -m langGraph.agent")
     return 0
 

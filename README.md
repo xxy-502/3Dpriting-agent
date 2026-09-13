@@ -17,18 +17,20 @@ Qwen 不负责猜测应该调用哪个视觉工具。媒体类型、图片/视�
 ```text
 3Dprint_detectagent/
 ├── langGraph/                 # Agent、RAG、图片和视频工作流
+├── dataset/image/             # 来自 Kaggle 的可选测试图片（非运行必需）
 ├── models/
 │   ├── yolo/yolo_best.pt      # 本项目提供的自训练 YOLO26 OBB 权重
 │   ├── sam/                   # 下载 SAM 2.1 Base+ 权重到这里
 │   ├── bge/                   # 下载 BGE 权重到这里
 │   └── Qwen/                  # 下载 Qwen2.5-3B-Instruct 权重到这里
 ├── sam2/                      # SAM 2.1 源码和 Hydra 配置
+│   └── LICENSE                # SAM 2 官方 Apache 2.0 完整许可证
 ├── download_models.py         # 官方模型权重下载脚本
 ├── THIRD_PARTY_LICENSES.md    # 第三方组件许可说明
 └── README.md
 ```
 
-`dataset/`（如果存在）只用于示例或测试，不是运行 Agent 的必要组件。
+`dataset/image/` 只用于示例或测试，不是运行 Agent 的必要组件；来源及许可注意事项见 [dataset/README.md](dataset/README.md)。仓库不再附带示例视频。
 
 ## 工作流
 
@@ -93,11 +95,11 @@ python download_models.py qwen bge
 python download_models.py sam
 ```
 
-脚本通过 Hugging Face 官方仓库下载 Qwen 和 BGE，通过 Meta 在 SAM 2 官方脚本中提供的地址下载 SAM 2.1 Base+。重复运行会复用 Hugging Face 缓存并跳过已存在的 SAM 权重；使用 `--force` 可重新下载。
+脚本通过 Hugging Face 官方仓库下载 Qwen 和 BGE，通过 Meta 在 SAM 2 官方脚本中提供的地址下载 SAM 2.1 Base+。下载计划会显示每个模型的官方许可证链接；下载完成后，相应许可证副本会保存在模型目录中。重复运行会复用 Hugging Face 缓存并跳过已存在的文件；使用 `--force` 可重新下载。
 
 如果自动下载失败，可以从上表的官方页面手动下载。目录可以保存模型文件本身，也可以使用 Hugging Face 的 `snapshots/<revision>` 布局，Agent 会自动寻找完整模型。
 
-> Qwen2.5-3B-Instruct 3B 权重采用 Qwen Research License，只允许非商业研究或评估用途。下载或使用前请阅读 [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md)。
+> 下载或使用任何模型即表示使用行为受该模型官方许可证约束；本项目保存的许可证副本不能替代官方条款。Qwen2.5-3B-Instruct 3B 权重采用 Qwen Research License，只允许非商业研究或评估用途。下载或使用前请阅读 [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md)。
 
 ## 环境与依赖
 

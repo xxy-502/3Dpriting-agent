@@ -13,6 +13,8 @@
 - 官方许可证：https://github.com/facebookresearch/sam2/blob/main/LICENSE
 - 官方权重：https://dl.fbaipublicfiles.com/segment_anything_2/092824/sam2.1_hiera_base_plus.pt
 
+本仓库中的 `sam2/` 是未作修改的官方源码副本，其完整 Apache 2.0 许可证已原样保存在 [`sam2/LICENSE`](sam2/LICENSE)。
+
 Apache 2.0 通常允许在保留许可证、版权、专利、商标和 NOTICE 等相关声明并标明修改的前提下使用、修改和分发。商标权不随该许可证授予。分发 `sam2/` 源码或官方权重时，请同时保留 Meta 原始文件中的版权头并附带 Apache 2.0 完整许可证。
 
 ## 2. Ultralytics YOLO26 与自训练权重
@@ -53,7 +55,19 @@ AGPL-3.0 是强 copyleft 许可证，并包含网络服务场景下向用户提�
 
 MIT License 通常允许使用、复制、修改、合并、发布、分发、再许可和销售软件副本，但须在软件的重要部分中保留版权声明和许可声明。软件按“现状”提供，不附带保证。
 
-## 5. Python 依赖
+## 5. Kaggle 示例图片数据
+
+- 组件：`dataset/image/` 中的可选测试图片。
+- 数据集：3D printing errors，Version 2（2022-04-20）。
+- 发布者：Mikuláš He。
+- 官方页面：https://www.kaggle.com/datasets/mikulhe/3d-printing-errors
+- Kaggle 元数据标注的许可证：GPL 2。
+
+该数据集的数据卡同时说明图片来自 Google Images，且没有为每张图片提供原作者、原始网址或单独授权。因此，上述 Kaggle 许可证标注不应被理解为本项目对每张图片原始权利状态作出的保证。使用或再分发前请阅读 [`dataset/README.md`](dataset/README.md)，并自行核实具体图片的原始权利；仓库不再分发示例视频。
+
+## 6. Python 依赖
+
+模型下载脚本会在下载计划中显示 Qwen、BGE 和 SAM 2 的官方许可证链接，并把许可证副本保存到相应模型目录。许可证副本仅用于方便查阅，不会替代或变更官方条款；下载或使用模型即受相应官方许可证约束。
 
 本项目还依赖 PyTorch、Torchvision、LangGraph、LangChain Core、Transformers、Hugging Face Hub、Qdrant Client、Ultralytics、OpenCV、NumPy、Pillow、Hydra、OmegaConf、iopath、tqdm、Pydantic 和 Safetensors 等软件包。它们由包管理器安装，不作为本仓库源码的一部分分发，并分别受各自许可证约束。使用者可以通过以下命令查看已安装包的元数据：
 
@@ -61,7 +75,7 @@ MIT License 通常允许使用、复制、修改、合并、发布、分发、�
 python -m pip show torch torchvision langgraph langchain-core transformers huggingface-hub qdrant-client ultralytics opencv-python numpy Pillow hydra-core omegaconf iopath tqdm pydantic safetensors
 ```
 
-## 6. 项目用途声明与免责声明
+## 7. 项目用途声明与免责声明
 
 本项目维护者仅将此项目用于个人学术研究、教学演示和非商业技术分享。该用途声明不是一个能够覆盖第三方材料的统一许可证，也不会缩减或扩大任何第三方权利。
 
