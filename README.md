@@ -156,10 +156,10 @@ iopath==0.1.10
 tqdm==4.67.3
 ```
 
-可以用下面的命令安装这些依赖：
+安装好匹配的 PyTorch/Torchvision 后，可以用下面的命令安装其余依赖：
 
 ```bash
-python -m pip install langgraph==1.2.11 langchain-core==1.6.1 qdrant-client==1.19.0 pydantic==2.13.5 transformers==5.9.0 safetensors==0.7.0 huggingface-hub==1.15.0 ultralytics==8.4.7 opencv-python==4.12.0.88 numpy==2.0.1 "Pillow>=9.4.0" hydra-core==1.3.2 omegaconf==2.3.0 iopath==0.1.10 tqdm==4.67.3
+python -m pip install -r requirements.txt
 ```
 
 Ultralytics 8.4.7 的包元数据在部分平台上可能声明 `torch<2.10`，而上述验证环境使用了 PyTorch 2.10。若 pip 报版本冲突，应优先选择 PyTorch 官方支持且同时满足 Ultralytics 约束的 `torch`/`torchvision` 配套版本，然后重新进行完整冒烟测试，不建议使用 `--no-deps` 强行忽略依赖。

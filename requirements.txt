@@ -1,0 +1,27 @@
+# Install a matching torch/torchvision pair separately first:
+# https://pytorch.org/get-started/locally/
+
+# LangGraph workflow
+langgraph==1.2.11
+
+# RAG / Qdrant
+langchain-core==1.6.1
+qdrant-client==1.19.0
+pydantic==2.13.5
+
+# Qwen and model downloads
+transformers==5.9.0
+safetensors==0.7.0
+huggingface-hub==1.15.0
+
+# YOLO / image and video processing
+ultralytics==8.4.7
+opencv-python==4.12.0.88
+numpy==2.0.1
+Pillow>=9.4.0
+
+# SAM 2
+hydra-core==1.3.2
+omegaconf==2.3.0
+iopath==0.1.10
+tqdm==4.67.3
