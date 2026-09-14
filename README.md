@@ -26,11 +26,12 @@ Qwen 不负责猜测应该调用哪个视觉工具。媒体类型、图片/视�
 ├── sam2/                      # SAM 2.1 源码和 Hydra 配置
 │   └── LICENSE                # SAM 2 官方 Apache 2.0 完整许可证
 ├── download_models.py         # 官方模型权重下载脚本
+├── LICENSE                    # 项目原创代码的 AGPL-3.0 完整许可证
 ├── THIRD_PARTY_LICENSES.md    # 第三方组件许可说明
 └── README.md
 ```
 
-`dataset/image/` 只用于示例或测试，不是运行 Agent 的必要组件；来源及许可注意事项见 [dataset/README.md](dataset/README.md)。仓库不再附带示例视频。
+`dataset/image/` 只用于示例或测试，不是运行 Agent 的必要组件；来源及许可注意事项见 [dataset/README.md](dataset/README.md)。仓库不附带原始示例视频，README 仅保留用于结果展示的视频片段动图。
 
 ## 工作流
 
@@ -62,6 +63,22 @@ image_detection       video_detection       用户已给检测结果
 ```
 
 视频中的 `defect_count` 表示经过时序确认的缺陷事件数，而不是所有帧检测框的简单累加。完整逐帧结果保存在 `yolo_defect_events.json`；LangGraph 状态只保存可 JSON 序列化的摘要和文件路径。
+
+## 结果展示
+
+### 图片缺陷检测与分割
+
+<p align="center">
+  <img src="runs/image/result.png" alt="3D 打印图片缺陷检测与分割结果" width="720">
+</p>
+
+### 视频缺陷检测与跟踪
+
+以下动图截取自结果视频的第 19–22 秒：
+
+<p align="center">
+  <img src="runs/video/defect_mask_tracking_19_22.gif" alt="3D 打印视频缺陷检测与跟踪结果" width="720">
+</p>
 
 ## 本地资源
 
@@ -273,6 +290,14 @@ python -m langGraph.video.video_graph \
 
 ## 许可与用途
 
-本项目用于个人学术研究、教学演示和非商业分享。第三方源码、库和模型权重保留其各自的许可证和权利声明；“非商业用途”声明不会替代或修改任何第三方许可证。详情见 [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md)。
+Copyright (c) 2026 xxy-502。
+
+除另有明确标注的第三方材料外，本项目作者原创的源代码以 [GNU Affero General Public License v3.0 only（AGPL-3.0-only）](LICENSE) 授权，包括 `langGraph/` 中的项目代码和 `download_models.py`。通过网络向用户提供修改版或组合程序时，应特别注意 AGPL 第 13 节关于提供相应源代码的要求。
+
+本项目定位为个人学术研究、教学演示和非商业分享；这是项目用途说明，不会对 AGPL-3.0 许可的原创代码增加“禁止商业使用”等额外限制。
+
+顶层 `LICENSE` 不会重新授权第三方内容。`sam2/` 继续适用 Apache-2.0；Ultralytics YOLO26、相关训练代码及模型适用 Ultralytics 的 AGPL-3.0 或另行取得的企业许可；Qwen2.5-3B-Instruct 适用 Qwen Research License；BGE Small EN v1.5 适用 MIT License；数据集图片适用其来源页面及原始权利人的条款。完整边界和官方链接见 [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md)。
+
+因此，项目原创代码的 AGPL 授权不代表整个模型组合具有统一许可证。使用完整 Agent 前，使用者必须同时满足所有实际加载组件的许可证；商业或闭源使用尤其需要分别核查 Ultralytics 与 Qwen 条款。
 
 本项目及模型输出按“现状”提供，不构成质量保证、工程认证或安全建议。使用者应自行核验检测与诊断结果。
